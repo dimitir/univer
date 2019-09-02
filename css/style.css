@@ -1,0 +1,778 @@
+     /* Добавить шрифт что  */
+     
+     
+     body {
+         /* position: absolute; */
+         background-image: url('../img/backgroundLeftTop.svg'),
+             url('../img/backgroundRightBottom.svg');
+         background-position:
+             top 0 left 0,
+             bottom 0 right 0;
+         background-size: 527px, 830px;
+         background-repeat: no-repeat;
+         /* height: 1024px; */
+         width: 100vw;
+         padding: 0;
+         margin: 0;
+         max-width: 100%;
+         overflow-x: hidden;
+         /* position: absolute; */
+
+     }
+
+
+     .logoContainer {
+         display: flex;
+         /* !!! */
+         /* display: none; */
+     }
+
+     .logoContainer__logo {
+         justify-content: flex-start;
+     }
+
+     .logoTop__img {
+         margin-left: 120px;
+         margin-top: 30px;
+     }
+
+     .verificationCaption {
+         margin-top: 185px;
+     }
+
+     .verificationCaption__h2 {
+         margin-top: 0;
+         margin-bottom: 0;
+
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 50px;
+         text-transform: uppercase;
+         color: #364476;
+     }
+
+     .verificationCaption__h1 {
+         margin-top: 0;
+         margin-bottom: 0;
+
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: bold;
+         font-size: 90px;
+         text-transform: uppercase;
+         color: #364476;
+     }
+
+     .verificationCaption__p {
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 20px;
+         line-height: 36px;
+         color: #000000;
+     }
+
+
+
+     .decorVerificationPage__square {
+         margin-top: 285px;
+         margin-left: -80px;
+         transform: rotate(-39deg);
+         background-color: #364476;
+         width: 234px;
+         height: 230px;
+         border-radius: 20px
+     }
+
+
+
+     .decorVerificationPage__circle {
+         border-radius: 50%;
+         behavior: url(PIE.htc);
+         /* remove if you don't care about IE8 */
+         width: 560px;
+         height: 560px;
+         background: #F7ECD5;
+         margin-left: -30px;
+         position: absolute;
+     }
+
+
+
+
+     .countdownTimer__blockDescribe {
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 18px;
+         line-height: 21px;
+         color: #364476;
+
+     }
+
+     #countdownTimer__clock {
+         font-family: Roboto;
+         /* font-style: th; */
+         font-weight: 200;
+         font-size: 68px;
+         margin-left: 30px;
+         margin-top: -30px;
+
+         color: #DADADA;
+     }
+
+
+
+
+     #buttonCheckDokWrap__button {
+         width: 375px;
+         height: 80px;
+         font-family: 'Roboto', sans-serif;
+         font-size: 25px;
+         text-transform: uppercase;
+         font-weight: bold;
+         color: #fff;
+         background-color: #FFC141;
+         border: none;
+         border-radius: 40px;
+         box-shadow: 0px 0px 40px rgba(255, 193, 65, 0.45);
+         border-radius: 40px;
+
+         /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); */
+         /* transition: all 0.3s ease 0s; */
+         cursor: pointer;
+         outline: none;
+     }
+
+
+
+     .arrow {
+         fill: #FFC141
+     }
+
+
+     /* 
+v - verificationCaption
+c - countdownTimer
+b - buttomCheckDokWrap
+d - decorationVerificationPage
+
+*/
+
+     #verificationPage {
+         /* display: none; */
+     }
+
+     #stepVerificationOne {
+         /* display: none; */
+     }
+
+
+
+     .verificationPageClass {
+         display: flex;
+         margin: auto;
+         display: grid;
+         /* !!! */
+         /* display: none; */
+         grid-template-columns: repeat(12, 1fr);
+         grid-template-rows: 530px 120px 120px;
+         /* grid-gap: 5px; */
+         max-width: 1200px;
+         margin-bottom: 100px;
+
+         grid-template-areas:
+             "v v v v v v . . d d d"
+             "c c c c c c . . d d d"
+             "b b b b b b . . d d d";
+     }
+
+     .verificationCaption {
+         grid-area: v;
+     }
+
+     .countdownTimer {
+         margin-top: 10px;
+         grid-area: c;
+         display: flex;
+         align-items: flex-start;
+     }
+
+     .buttonCheckDokWrap {
+         grid-area: b;
+         margin-top: 35px;
+     }
+
+     .decorVerificationPage {
+         grid-area: d;
+     }
+
+
+
+     #lastStepIcon {
+         background: url('../img/checkedDisableSteps.svg') no-repeat;
+         background-size: auto;
+         width: 42px;
+         height: 42px;
+         margin-bottom: 9px;
+     }
+
+
+     #lastStepIconActiv {
+         background: url('../img/stepThreeActiv.svg') no-repeat;
+         background-size: auto;
+         width: 58px;
+         height: 58px;
+         margin-bottom: 9px;
+         display: none;
+     }
+
+
+     #verificationModal {
+         display: none;
+         margin: auto;
+         /* display: none; */
+         left: 0;
+         right: 0;
+         width: 100%;
+         height: auto;
+         z-index: 2000;
+         /* visibility: hidden; */
+         /* -webkit-backface-visibility: hidden;
+         -moz-backface-visibility: hidden;
+         backface-visibility: hidden; */
+         background: #fff
+     }
+
+
+     #verificationModal__close {
+         background-image: url('../img/close.svg');
+         position: absolute;
+         top: 40px;
+         right: 40px;
+         width: 23px;
+         height: 23px;
+     }
+
+     #verificationModal__close {
+         cursor: pointer;
+     }
+
+
+     input[aria-invalid="false"],
+     textarea[aria-invalid="false"] {
+         border: 2px solid #71D958;
+     }
+
+     input[aria-invalid="true"],
+     textarea[aria-invalid="true"] {
+         border: 2px solid #EB5757;
+     }
+
+     /* modal1 start */
+     .stepsVerification {
+         display: grid;
+         grid-template-columns: repeat(12, 1fr);
+         grid-template-rows: 250px 230px 320px;
+         max-width: 1200px;
+         margin: auto;
+         grid-template-areas:
+             ". c c c c c c c c c c ."
+             ". f f f f d d p p p p ."
+             ". . . . . . . . . . . .";
+     }
+
+
+
+
+     /* 
+     u -- stepsVerification__userData
+     r -- stepsVerification__userResult
+     
+     */
+
+
+
+     .stepsVerification__nav {
+         max-width: 1000px;
+         /* grid-area: n; */
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-end;
+         margin: auto;
+         height: 215px;
+     }
+
+     .stepsVerification__caption {
+         grid-area: c;
+         /* margin: auto; */
+         /* align-self: flex-end; */
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-top: 40px;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: bold;
+         font-size: 40px;
+         line-height: 47px;
+         /* identical to box height */
+         text-align: center;
+         font-feature-settings: 'tnum'on, 'onum'on;
+
+         color: #364476;
+
+     }
+
+
+     .stepsVerification__formsPersonalData {
+         margin-top: -4px;
+         grid-area: f;
+         /* display: flex;
+         flex-direction: column;
+         justify-content: center; */
+     }
+
+
+     .stepsVerification__decorationLineForm {
+         grid-area: d;
+
+         margin-top: -2px;
+         border: .5px solid #F4F4F4;
+         width: 2px;
+         height: 229px;
+         background: #F4F4F4;
+
+     }
+
+     .stepsVerification__formResult {
+         grid-area: p;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+     }
+
+     .stepsVerification__barWrap {
+         margin-bottom: 50px;
+     }
+
+     #stepsVerification__textAboveBarOneStep,
+     #stepsVerification__textAboveBarTwoStep {
+         display: block;
+         margin-bottom: 20px;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 16px;
+         line-height: 19px;
+         /* identical to box height */
+         font-feature-settings: 'tnum'on, 'onum'on;
+
+         color: #DADADA;
+
+     }
+
+
+
+
+
+     #stepVerificationThree {
+         display: none;
+         display: grid;
+         grid-template-columns: repeat(12, 1fr);
+         max-width: 1200px;
+         margin: auto;
+
+         grid-template-rows: 250px 110px 430px;
+         grid-template-areas:
+             ". c c c c c c c c c c ."
+             ". . . u u u u u u . . ."
+             ". . . r r r r r r . . .";
+     }
+
+
+     #stepsVerification__userData {
+         grid-area: u;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 500;
+         font-size: 20px;
+         line-height: 23px;
+         text-align: center;
+         font-feature-settings: 'tnum'on, 'onum'on;
+
+         color: #000000;
+     }
+
+
+     .stepsVerification__userResult {
+         grid-area: r;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 20px;
+         line-height: 36px;
+         /* or 180% */
+         text-align: center;
+         font-feature-settings: 'tnum'on, 'onum'on;
+
+         color: #000000;
+     }
+
+
+     .stepsVerification__progressBar {
+         /* margin-top: 20px; */
+         height: 30px;
+         width: 100%;
+         background: #F4F4F4;
+         border-radius: 30px;
+     }
+
+     #stepsVerification__oneStepMove,
+     #stepsVerification__twoStepMove {
+         background: #71D958;
+         /* background: #009dff;
+         background: linear-gradient(to right, #009dff 0, #00c8ff 100%); */
+         /* position:fixed; */
+         z-index: 1031;
+         top: 0;
+         left: 0;
+         height: 30px;
+         transition: all 1s;
+         transition-timing-function: ease-out;
+         width: 0;
+         overflow: hidden;
+         border-radius: 30px;
+         color: rgb(255, 255, 255);
+         /* text-align: center; */
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 500;
+         font-size: 16px;
+         color: #FFFFFF;
+     }
+
+
+
+
+
+     #stepsVerification__buttonGo:disabled,
+     #stepsVerification__buttonResult:disabled {
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: bold;
+         font-size: 25px;
+         line-height: 29px;
+         text-transform: uppercase;
+         color: #FFFFFF;
+         /* max-width: 181px; */
+         height: 80px;
+         background: #F4F4F4;
+         border-radius: 40px;
+         border: 0;
+         padding: 0 60px 0 60px;
+     }
+
+
+     #stepsVerification__buttonGo:enabled,
+     #stepsVerification__buttonResult:enabled {
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: bold;
+         font-size: 25px;
+         line-height: 29px;
+         text-transform: uppercase;
+         color: #FFFFFF;
+         height: 80px;
+
+         background: #FFC141;
+         box-shadow: 0px 0px 40px rgba(255, 193, 65, 0.45);
+
+         border-radius: 40px;
+         border: 0;
+         padding: 0 60px 0 60px;
+     }
+
+     #stepsVerification__buttonGo:hover,
+     #stepsVerification__buttonResult:hover {
+         cursor: pointer;
+     }
+
+
+
+     .stepsVerification__buttonWrap {
+         display: flex;
+         flex-direction: column;
+
+     }
+
+     .stepsVerification__buttonResultTip {
+         text-align: center;
+         margin-top: 3px;
+         height: 6px;
+     }
+
+     #stepsVerification__buttonResultTipText {
+         visibility: hidden;
+     }
+
+     .stepOneVerification__Input {
+         width: 100%;
+         height: 50px;
+
+         padding: 25px;
+         margin-top: 0px;
+         border-radius: 25px;
+         background: #F4F4F4;
+         border: 0;
+         box-sizing: border-box;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 500;
+         font-size: 18px;
+         color: #000000;
+     }
+
+
+     .stepOneVerification__Input:nth-child(2n) {
+         margin-top: 25px;
+     }
+
+     .stepsVerification__Input:focus {
+         border: 2px solid #71D958;
+     }
+
+
+     ::-webkit-input-placeholder {
+         /* WebKit, Blink, Edge */
+         color: #B7B7B7;
+         font-weight: 300;
+     }
+
+     :-moz-placeholder {
+         /* Mozilla Firefox 4 to 18 */
+         color: #B7B7B7;
+         font-weight: 300;
+         opacity: 1;
+     }
+
+     ::-moz-placeholder {
+         /* Mozilla Firefox 19+ */
+         color: #B7B7B7;
+         font-weight: 300;
+         opacity: 1;
+     }
+
+     :-ms-input-placeholder {
+         /* Internet Explorer 10-11 */
+         color: #B7B7B7;
+         font-weight: 300;
+     }
+
+     ::-ms-input-placeholder {
+         /* Microsoft Edge */
+         color: #B7B7B7;
+         font-weight: 300;
+     }
+
+     ::placeholder {
+         /* in most case */
+         color: #B7B7B7;
+         font-weight: 300;
+     }
+
+
+
+
+
+
+
+
+
+     .stepsVerification__step {
+         display: flex;
+         flex-direction: column;
+         color: #DADADA;
+     }
+
+
+
+     .stepsVerification__h {
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 30px;
+         text-transform: uppercase;
+     }
+
+     .stepsVerification__p {
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 16px;
+         line-height: 19px;
+     }
+
+
+     .stepsVerification__line {
+         border-top: .5px solid #ECECEC;
+         width: 100px;
+         margin-bottom: 30px;
+         /* align-self: flex-end; */
+     }
+
+
+
+
+     /* The container */
+
+     .stepsVerification__containerRadio {
+         margin-right: 40px;
+
+         display: block;
+         position: relative;
+         padding-left: 35px;
+         margin-bottom: 12px;
+         cursor: pointer;
+         font-size: 22px;
+         -webkit-user-select: none;
+         -moz-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+     }
+
+     /* Hide the browser's default radio button */
+     .stepsVerification__containerRadio input {
+         position: absolute;
+         opacity: 0;
+         cursor: pointer;
+     }
+
+     /* Create a custom radio button */
+     .stepsVerification__checkmark {
+         position: absolute;
+         top: 0;
+         left: 0;
+         height: 25px;
+         width: 25px;
+         background-color: #eee;
+         border-radius: 50%;
+     }
+
+     /* On mouse-over, add a grey background color */
+     .stepsVerification__containerRadio:hover input~.stepsVerification__checkmark {
+         background-color: #ccc;
+     }
+
+     /* When the radio button is checked, add a green background */
+     .stepsVerification__containerRadio input:checked~.stepsVerification__checkmark {
+         background-color: #71D958;
+         /* border: 6px solid #71D958; */
+     }
+
+     /* Create the indicator (the dot/circle - hidden when not checked) */
+     .stepsVerification__checkmark:after {
+         content: "";
+         position: absolute;
+         display: none;
+     }
+
+     /* Show the indicator (dot/circle) when checked */
+     .stepsVerification__containerRadio input:checked~.stepsVerification__checkmark:after {
+         display: block;
+     }
+
+     /* Style the indicator (dot/circle) */
+     .stepsVerification__containerRadio .stepsVerification__checkmark:after {
+         top: 6px;
+         left: 6px;
+         width: 13px;
+         height: 13px;
+         border-radius: 50%;
+         background: white;
+     }
+
+
+     .stepsVerification__radios {
+         display: flex;
+         margin-bottom: 50px;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 20px;
+         line-height: 23px;
+
+         color: #777777;
+     }
+
+
+     .stepsVerification__ImputContainer {
+         display: flex;
+         justify-content: space-between;
+     }
+
+     .stepVerification__InputShortNum {
+         max-width: 142px;
+     }
+
+     .stepVerification__InputLongNum {
+         /* margin-left: 20px; */
+         max-width: 238px;
+     }
+
+
+     .stepsVerification__step:hover {
+         cursor: pointer;
+     }
+
+
+     #stepVerificationTwo {
+         /* display: grid; */
+         display: none;
+     }
+
+
+
+
+
+     .stepTwoVerification__Input {
+         width: 100%;
+         height: 50px;
+         margin-top: 3px;
+         padding: 25px;
+         border-radius: 25px;
+         background: #F4F4F4;
+         border: 0;
+         box-sizing: border-box;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 500;
+         font-size: 18px;
+         color: #000000;
+     }
+
+     .stepTwoVerification__Input:focus {
+         border: 2px solid #71D958;
+     }
+
+     .tips-hide {
+         position: relative;
+         height: 15px;
+         visibility: hidden;
+     }
+
+     .tips {
+         /* display: none; */
+         margin-left: 20px;
+     }
+
+     .container {
+         display: flex;
+         /* justify-content: center; */
+         flex-direction: column;
+         margin-bottom: 25px;
+     }

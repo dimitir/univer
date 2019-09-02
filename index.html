@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="css/style.css" type=text/css rel=stylesheet>
+
+</head>
+
+<body>
+    <header>
+        <div class="logoContainer">
+            <div class="logoContainer__logo">
+                <img src="img/logoTop.svg" alt="Karazin University logo" class="logoTop__img">
+            </div>
+        </div>
+
+    </header>
+
+    <article id="verificationPage">
+        <div class="verificationPageClass">
+            <div class="verificationCaption">
+                <h2 class="verificationCaption__h2">Перевірка документа</h2>
+                <h1 class="verificationCaption__h1">про освіту</h1>
+                <p class="verificationCaption__p">Інформаційна система містить імена випускників
+                    та реквізити документів про здобуту ними освіту.
+                    Відомості збираються починаючи з 2018 року.
+                </p>
+            </div>
+
+            <div class="countdownTimer">
+
+                <div class="countdownTimer__blockDescribe">
+                    <span class="countdownTimer__text">До закінчення <br>
+                        залишилося:</span>
+                </div>
+                <div id="countdownTimer__clock">
+                    <span class="hours"></span>
+                    <span class="minutes"></span>
+                    <span class="seconds"></span>
+                </div>
+
+            </div>
+            <div class="buttonCheckDokWrap">
+                <button type="submit" id="buttonCheckDokWrap__button">Перевірити документ</button>
+            </div>
+
+            <div class="decorVerificationPage">
+
+                <div class="decorVerificationPage__circle"></div>
+                <div class="decorVerificationPage__square"></div>
+
+            </div>
+
+
+        </div>
+
+    </article>
+
+    <article id="verificationModal">
+        <div id="verificationModal__close"></div>
+        <header class="stepsVerification__nav">
+
+            <label class="stepsVerification__step" id="stepOne">
+                <span class="stepsVerification__h">Крок 1</span>
+                <span class="stepsVerification__p">Перевірка особистості</span>
+            </label>
+
+            <hr class="stepsVerification__line">
+
+
+            <label class="stepsVerification__step" id="stepTwo">
+                <span class="stepsVerification__h">Крок 2</span>
+                <span class="stepsVerification__p">Перевірка документа</span>
+            </label>
+
+            <hr class="stepsVerification__line">
+
+            <label class="stepsVerification__step">
+                <div id="lastStepIcon"></div>
+                <div id="lastStepIconActiv"></div>
+            </label>
+
+        </header>
+
+
+        <section class="stepsVerification" id="stepVerificationOne">
+
+            <div class="stepsVerification__caption">
+                <div class="">Перевірка особистості
+                </div>
+            </div>
+
+            <div class="stepsVerification__formsPersonalData">
+                <form action="#" method="POST">
+
+                    <div class="container">
+                        <input name="name" class="stepsVerification__Input stepOneVerification__Input"
+                            placeholder="Ім`я" value="" required="required" aria-required="true"
+                            pattern="^(?:^[АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ]+[\-\`\']?[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя]+)$"
+                            title="Поле " type="text" spellcheck="false" size="20" />
+                        <div class="tips-hide"><span class="tips">Українська мова, з великої літери</span></div>
+                    </div>
+
+                    <div class="container">
+                        <input name="lastname" class="stepsVerification__Input stepOneVerification__Input"
+                            placeholder="Прізвище" value="" required="required" aria-required="true"
+                            pattern="^(?:^[АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ]+[\-\`\']?[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя]+)$"
+                            title="Your name (no special characters, diacritics are okay)" type="text"
+                            spellcheck="false" size="20" />
+                        <div class="tips-hide"><span class="tips">Українська мова, з великої літери</span></div>
+                    </div>
+
+                    <div class="container">
+                        <input type="email" name="email" placeholder="E-mail"
+                            class="stepsVerification__Input stepOneVerification__Input" spellcheck="false"
+                            required="required" aria-required="true"
+                            title="Your name (no special characters, diacritics are okay)"
+                            pattern="(?:([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})" />
+                        <div class="tips-hide"><span class="tips">Формат електронної пошти</span></div>
+                    </div>
+            </div>
+            <hr class="stepsVerification__decorationLineForm">
+
+            <div class="stepsVerification__formResult">
+                <div class="stepsVerification__barWrap">
+                    <span id="stepsVerification__textAboveBarOneStep">Заповніть всі поля у формі</span>
+                    <div class="stepsVerification__progressBar">
+                        <div id="stepsVerification__oneStepMove"></div>
+                    </div>
+                </div>
+                <div class="stepsVerification__buttonWrap">
+                    <button type="submit" disabled id="stepsVerification__buttonGo">Далі</button>
+                </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="stepsVerification" id="stepVerificationTwo">
+
+            <div class="stepsVerification__caption">
+                <div class="">Перевірка документів</div>
+            </div>
+
+            <div class="stepsVerification__formsPersonalData">
+
+                <form action="#" method="POST">
+                    <div class="stepsVerification__radios">
+                        <label class="stepsVerification__containerRadio">Бакалавр
+                            <input type="radio" checked="checked" name="radio" value="Бакалавр">
+                            <span class="stepsVerification__checkmark"></span>
+                        </label>
+
+                        <label class="stepsVerification__containerRadio">Магістр
+                            <input type="radio" name="radio" value="Магістр">
+                            <span class="stepsVerification__checkmark"></span>
+                        </label>
+
+                    </div>
+                    <div class="stepsVerification__ImputContainer">
+                        <div class="container">
+                            <input name="numbershort"
+                                class="stepsVerification__Input   stepTwoVerification__Input stepVerification__InputShortNum"
+                                placeholder="N18" value="" required="required" aria-required="true" pattern="\w\d{2}$"
+                                title="Поле " type="text" spellcheck="false" size="20" />
+                            <div class="tips-hide"><span class="tips">Буква і дві цифри</span></div>
+                        </div>
+
+                        <div class="container">
+                            <input name="numberlong"
+                                class="stepsVerification__Input  stepTwoVerification__Input  stepVerification__InputLongNum"
+                                placeholder="1234567" value="" required="required" aria-required="true" pattern="\d{7}$"
+                                title="Your name (no special characters, diacritics are okay)" type="text"
+                                spellcheck="false" size="20" />
+                            <div class="tips-hide"><span class="tips">Номер складається мінімум з 7 цифр!</span></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <input name="datefinish" class="stepsVerification__Input  stepTwoVerification__Input"
+                            placeholder="Дата закінчення навчання" value="" required="required" aria-required="true"
+                            pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$"
+                            title="Your name (no special characters, diacritics are okay)" type="text"
+                            spellcheck="false" size="20" />
+                        <div class="tips-hide"><span class="tips">Подсказка</span></div>
+                    </div>
+            </div>
+
+            <hr class="stepsVerification__decorationLineForm">
+
+            <div class="stepsVerification__formResult">
+                <div class="stepsVerification__barWrap">
+                    <span id="stepsVerification__textAboveBarTwoStep">Заповніть всі поля у формі</span>
+                    <div class="stepsVerification__progressBar">
+                        <div id="stepsVerification__twoStepMove"></div>
+                    </div>
+                </div>
+                <div class="stepsVerification__buttonWrap">
+                    <button type="submit" disabled id="stepsVerification__buttonResult">До результату</button>
+                    <div class="stepsVerification__buttonResultTip">
+                        <span id="stepsVerification__buttonResultTipText">Заповніть всі поля</span></div>
+                </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="stepVerificationThree">
+            <div class="stepsVerification__caption">
+                <div class="">Результат перевірки</div>
+            </div>
+            <div id="stepsVerification__userData">
+            </div>
+            <div class="stepsVerification__userResult">
+                Закінчив 8 вересня у 2017 році
+                Харківський національний університет імені В. Н. Каразіна
+                здобув ступінь вищої освіти бакалавр,
+                за спеціальністю «фізіка конденсованого стану»
+                здобув кваліфікацію «фізик конденсованого стану»
+            </div>
+            </div>
+        </section>
+
+    </article>
+
+
+    <script src="src/countdown-timer.js"></script>
+    <script src="src/modal-navigation.js"></script>
+    <script src="src/validation.js"></script>
+
+</body>
+
+</html>
